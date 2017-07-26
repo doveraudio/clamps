@@ -1,0 +1,1 @@
+centos linux apache mysql php stack
