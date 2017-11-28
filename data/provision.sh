@@ -13,16 +13,26 @@ sudo yum -y update;
 printf "Install unzip mariadb mariadb-server httpd php php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php...\n"
 sudo yum -y install mysql-community-server httpd php php-common php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd php-ctype php-session php-pdo_mysql php-curl php-ldap php-xsl php-zip php-soap php-mbstring php-mysqli curl imagemagick-dev; 
 #sudo yum -y install mysql-server httpd php php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd; 
-printf "Disabling selinux...";
+printf "Disabling selinux...\n";
 sudo cp /var/data/selinuxconfig /etc/selinux/config;
 sudo setenforce 0;
-printf "Configuring mariadb and apache...";
+printf "Configuring mariadb and apache...\n";
 sudo systemctl enable httpd;
 sudo systemctl start httpd;
 sudo systemctl enable mysqld;
 sudo systemctl start mysqld;
-printf "Copying new php.ini file";
+printf "Copying new php.ini file\n";
 sudo cp /var/data/php.ini /etc/php.ini;
-printf "reastarting apache...";
+printf "Restarting apache...\n";
 sudo apachectl restart;
-printf "Configuration Complete.";
+
+printf "Setting up MySQL for developer mode.\n";
+
+mysqlpass="$(grep 'A temporary password is generated for root@localhost' /var/log/mysqld.log |tail -1 | awk '{print $NF }')\n";
+echo " Logging into MYSQL With Password: ${mysqlpass}\n";
+echo "Removing `validate_password` plugin, setting up root for dev...\n\n";
+echo ".\n.\n.\n";
+mysql -u root -p${mysqlpass} --connect-expired-password < initmysql.sql;
+
+printf "MySQL User:root , Password:root\n";
+printf "Configuration Complete.\n";
