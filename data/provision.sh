@@ -10,13 +10,14 @@ sudo rpm --import http://debian.neo4j.org/neotechnology.gpg.key
 sudo yum-config-manager --enable remi-php70;
 sudo yum localinstall -y https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm;
 sudo yum install -y https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-2.noarch.rpm;
+sudo yum -y install centos-release-dotnet;
 sudo cp /var/data/mongodb-org-3.6.repo /etc/yum.repos.d/mongodb-org-3.6.repo;
 sudo cp /var/data/neo4j.repo /etc/yum.repos.d/neo4j.repo;
 curl --silent --location https://rpm.nodesource.com/setup_9.x | sudo bash -;
 sudo yum -y update;
 
-printf "Install mysql-community-server postgresql94 postgresql94-server mongodb-org redis httpd php php-common php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd php-ctype php-session php-pdo_mysql php-curl php-ldap php-xsl php-zip php-soap php-mbstring php-mysqli composer curl git nodejs imagemagick-dev...\n"
-sudo yum -y install mysql-community-server postgresql94 postgresql94-server mongodb-org redis httpd php php-common php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd php-ctype php-session php-pdo_mysql php-pgsql php-curl php-ldap php-xsl php-zip php-soap php-mbstring php-mysqli curl git nodejs imagemagick-dev composer; 
+printf "Install mysql-community-server \npostgresql94 \npostgresql94-server \nmongodb-org \nredis \nhttpd \nphp \nphp-common \nphp-mysqlnd \nphp-intl \nphp-json \nphp-xml \nphp-mcrypt \nphp-mbstring \nphp-pdo \nmod_php \nphp-gd \nphp-ctype \nphp-session \nphp-pdo_mysql \nphp-curl \nphp-ldap \nphp-xsl \nphp-zip \nphp-soap \nphp-mbstring \nphp-mysqli \ncomposer \ncurl \ngit \nnodejs \nrh-dotnet20 \nimagemagick-dev...\n"
+sudo yum -y install mysql-community-server postgresql94 postgresql94-server mongodb-org redis httpd php php-common php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd php-ctype php-session php-pdo_mysql php-pgsql php-curl php-ldap php-xsl php-zip php-soap php-mbstring php-mysqli curl git nodejs rh-dotnet20 imagemagick-dev composer; 
 #sudo yum -y install mysql-server httpd php php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd; 
 printf "Disabling selinux...\n";
 sudo cp /var/data/selinuxconfig /etc/selinux/config;
@@ -39,12 +40,11 @@ source /home/vagrant/.rvm/scripts/rvm;
 printf "Installing Ruby 2.4 as default \n";
 rvm install 2.4 --default;
 
-printf "Installing Microsoft Dot Net Core 2.0\n";
-sudo yum install centos-release-dotnet;
-sudo yum install rh-dotnet20;
+printf "Configuring Microsoft Dot Net Core 2.0\n";
+
 
 cp /var/data/.bashrc ~/.bashrc
-scl enable rh-dotnet20 bash;
+
 
 
 printf "Setting up MySQL for developer mode.\n";
@@ -116,3 +116,4 @@ printf "Access Neo4j\n";
 printf "HTTP\n guest: 7474, host: 7414\n";
 printf "HTTPS\n guest: 7473, host: 7413\n";
 printf "Bolt\n guest: 7687, host: 7617\n";
+scl enable rh-dotnet20 bash;
