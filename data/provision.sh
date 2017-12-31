@@ -191,7 +191,34 @@ source scl_source enable rh-dotnet20;
 
 #################------>END OF DOTNET CORE SECTION<-----#####
 
+####################---->PHPMYADMIN SECTION <-------###########
+#########
+######### EDIT PHPMYADMIN CONFIG SETTINGS HERE
+printf "Downloading PhpMyAdmin.......\n";
+wget -O phpmyadmin.zip https://files.phpmyadmin.net/phpMyAdmin/4.7.7/phpMyAdmin-4.7.7-english.zip;
+printf "Unzipping PhpMyAdmin.......\n";
+unzip phpmyadmin.zip -d /var/data/;
+printf "Moving PhpMyAdmin.......\n";
+mv /var/data/phpMyAdmin-4.7.7-english/ /var/www/html/phpmyadmin;
+printf "Configuring PhpMydmin.......\n";
+cp /var/data/config.inc.php.myadmin /var/www/html/phpmyadmin/config.inc.php;
+#################------>END OF PHPMYADMIN SECTION<-----#####
+
+####################---->PHPPGADMIN SECTION <-------###########
+#########
+######### EDIT PHPPGADMIN CONFIG SETTINGS HERE
+printf "Downloading PhpPGAdmin.......\n";
+wget -O phppgadmin.zip https://github.com/xzilla/phppgadmin/archive/master.zip;
+printf "Unzipping PhpPGAdmin.......\n";
+unzip phppgadmin.zip -d /var/data/;
+printf "Moving PhpPGAdmin.......\n";
+mv /var/data/phppgadmin-master /var/www/html/phppgadmin;
+printf "Configuring PhpPGAdmin.......\n";
+cp /var/data/config.inc.php.pgadmin /var/www/html/phppgadmin/conf/config.inc.php;
+#################------>END OF PHPPGADMIN SECTION<-----#####
+
 ####################---->END OF SECTIONS <-------###########
+
 ######### FINAL MATTERS #################
 
 ######### END OF CURRENT CONFIG SETTINGS #################
