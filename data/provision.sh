@@ -221,6 +221,9 @@ cp /var/data/config.inc.php.pgadmin /var/www/html/phppgadmin/conf/config.inc.php
 
 ######### FINAL MATTERS #################
 
+sudo cp /var/data/.htaccess /var/www/.htaccess;
+sudo cp /var/data/httpd.conf /etc/httpd/conf/httpd.conf;
+
 ######### END OF CURRENT CONFIG SETTINGS #################
 printf "Forwarded Ports:\n";
 printf "Private Network IP: 192.168.33.10\n";
