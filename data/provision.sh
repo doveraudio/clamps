@@ -215,14 +215,18 @@ printf "Moving PhpPGAdmin.......\n";
 mv /var/data/phppgadmin-master /var/www/html/phppgadmin;
 printf "Configuring PhpPGAdmin.......\n";
 cp /var/data/config.inc.php.pgadmin /var/www/html/phppgadmin/conf/config.inc.php;
-#################------>END OF PHPPGADMIN SECTION<-----#####
+#################----->END OF PHPPGADMIN SECTION<-----#####
 
-####################---->END OF SECTIONS <-------###########
+####################----->END OF SECTIONS <-----###########
 
 ######### FINAL MATTERS #################
+#### Copy any final Configuration files here #########
 
+########### APACHE FINAL SECTION ############
 sudo cp /var/data/.htaccess /var/www/.htaccess;
 sudo cp /var/data/httpd.conf /etc/httpd/conf/httpd.conf;
+sudo systemctl restart httpd;
+########### END APACHE FINAL SECTION ########
 
 ######### END OF CURRENT CONFIG SETTINGS #################
 printf "Forwarded Ports:\n";
