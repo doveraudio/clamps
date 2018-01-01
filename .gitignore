@@ -1,2 +1,6 @@
 .vagrant/
 .vscode/
+*.zip
+*.rpm
+/html/phpmyadmin
+/html/phppgadmin

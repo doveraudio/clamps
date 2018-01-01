@@ -67,7 +67,7 @@
             <li class="small-logo"><a href="#header"><img src="img/small-logo.1.png" alt=""></a></li>
             <li><a href="#usage">Usage</a></li>
             <li><a href="#service">Services</a></li>
-            </ul>
+        </ul>
         <a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
     </div>
 </nav><!--main-nav-end-->
@@ -84,10 +84,10 @@
             </ul>
             <h2><a id="Recommendations_10"></a>Recommendations:</h2>
             <ul>
-            <li><a href="https://conemu.github.io/">ConEmu-Maximus5</a> for Windows</li>
-            <li><a href="http://guake-project.org/">Guake</a> for Fedora</li>
-            <li><a href="https://netbeans.org/downloads/index.html">Netbeans IDE</a>: It let's you work with your virtual machine as if it's a remote server. Helpful for frameworks with sensitivity about file perrmissions.</li>
-            <li>Comment out sections in <a href="https://github.com/doveraudio/clamps/blob/master/data/provision.sh">provision script</a> for systems you won’t use. <a href="https://neo4j.com/">Neo4j</a> only <strong>requires</strong> <a href="http://openjdk.java.net/install/">Java Open JDK 1.8 Jre</a>, not the entire SDK. So if you won’t use Java, comment out the section, and then remove it from the install line.</li>
+            <li><a href="https://conemu.github.io/" target="_blank">ConEmu-Maximus5</a> for Windows</li>
+            <li><a href="http://guake-project.org/" target="_blank">Guake</a> for Fedora</li>
+            <li><a href="https://netbeans.org/downloads/index.html" target="_blank">Netbeans IDE</a>: It let's you work with your virtual machine as if it's a remote server. Helpful for frameworks with sensitivity about file perrmissions.</li>
+            <li>Comment out sections in <a href="https://github.com/doveraudio/clamps/blob/master/data/provision.sh" target="_blank">provision script</a> for systems you won’t use. <a href="https://neo4j.com/" target="_blank">Neo4j</a> only <strong>requires</strong> <a href="http://openjdk.java.net/install/" target="_blank">Java Open JDK 1.8 Jre</a>, not the entire SDK. So if you won’t use Java, comment out the section, and then remove it from the install line.</li>
             <li>Customize your version requirements. Though certain dependencies exist, if you are targeting those technologies you either know that or will find out! Change the repository information at the top of the provisioning script, and change the install version as needed.</li>
             </ul>
             </div>
@@ -130,15 +130,14 @@
                 <div class="col-lg-6 col-sm-6 ">
                 <div class="service-list">
                 	<div class="service-list-col1">
-                    <a href="https://www.mysql.com/">
+                    <a href="https://www.mysql.com/" target="_blank">
                         <img class="brand-logo" src="./img/mysql.png"/>
                     </a>
                     </div>
                 	<div class="service-list-col2">
                         <h3>MySQL Database Server and Client</h3>
                         <p>Pre-configured MySQL server,<br>simply log on with mysql or the included PhpMyAdmin Web Application.</p>
-                        <a href="http://192.168.33.10/phpmyadmin"><span>phpMyAdmin Access</span></a>
-                        <p>Pre-configured MySQL server, simply log on with mysql.</p>
+                        <span> <a href="http://192.168.33.10/phpmyadmin" target="_blank">phpMyAdmin</a> Access </span>
                         <p>USER: "root" PASSWORD: "root"</p>
                     </div>
                 </div>
@@ -148,14 +147,14 @@
                 <div class="col-lg-6 col-sm-6 ">
                 <div class="service-list">
                 	<div class="service-list-col1">
-                    <a href="https://www.postgresql.org/">
+                    <a href="https://www.postgresql.org/" target="_blank">
                         <img class="brand-logo" src="./img/postgres.png"/>
                     </a>
                     </div>
                 	<div class="service-list-col2">
                         <h3>PostGreSQL Database Server and Client</h3>
                         <p>Pre-configured PostGreSQL server,<br>simply log on with psql or the included PhpPgAdmin Web Application.</p>
-                        <a href="http://192.168.33.10/phpPgAdmin"><span>phpPgAdmin Access</span></a>
+                        <span><a href="http://192.168.33.10/phpPgAdmin" target="_blank" >phpPgAdmin</a> Access</span>
                         
                         <p>USER: "postgres" PASSWORD: "postgres"</p>
                         <p>USER: "vagrant" PASSWORD: "vagrant"</p>
@@ -167,13 +166,13 @@
                     <div class="col-lg-6 col-sm-6 ">
                 <div class="service-list">
                 	<div class="service-list-col1">
-                    <a href="https://www.redis.io/">
+                    <a href="https://www.redis.io/" target="_blank">
                         <img class="brand-logo" src="./img/Redis.png"/>
                     </a>
                     </div>
                 	<div class="service-list-col2">
                         <h3>Redis Server</h3>
-                        <p>Redis server, get a client from <a href="https://redis.io/clients">redis.io/clients</a> and access</p>
+                        <p>Redis server, get a client from <a href="https://redis.io/clients" target="_blank">redis.io/clients</a> and access</p>
                         <p>at port 6379 on the virtual machine, and at 6300 on your host.</p>                        
                     </div>
                 </div>
@@ -184,7 +183,7 @@
                 <div class="col-lg-6 col-sm-6 ">
                 <div class="service-list">
                 	<div class="service-list-col1">
-                        <a href="https://www.mongodb.com/">
+                        <a href="https://www.mongodb.com/" target="_blank">
                         <img class="brand-logo" src="./img/mongodb.png"/>
                         </a>
                         
@@ -205,7 +204,7 @@
             
                 <div class="service-list">
                 	<div class="service-list-col1">
-                    <a href="https://www.php.net/">
+                    <a href="https://www.php.net/" target="_blank">
                         <img class="brand-logo" src="./img/php.png"/>
                         </a>
                         
@@ -226,7 +225,7 @@
                 <div class="col-lg-6 col-sm-6 ">
                 <div class="service-list">
                 	<div class="service-list-col1">
-                    <a href="https://docs.microsoft.com/en-us/dotnet/">
+                    <a href="https://docs.microsoft.com/en-us/dotnet/" target="_blank">
                         <img class="brand-logo" src="./img/dotnet.png"/>
                         </a>
                         
@@ -242,7 +241,7 @@
             <div class="col-lg-6 col-sm-6 ">
                 <div class="service-list">
                 	<div class="service-list-col1">
-                    <a href="http://openjdk.java.net/">
+                    <a href="http://openjdk.java.net/" target="_blank">
                         <img class="brand-logo" src="./img/Java.png"/>
                         </a>
                     </div>
@@ -260,7 +259,7 @@
             <div class="col-lg-6 col-sm-6 ">
                 <div class="service-list">
                 	<div class="service-list-col1">
-                    <a href="https://nodejs.org/">
+                    <a href="https://nodejs.org/" target="_blank">
                         <img class="brand-logo" src="./img/nodejs.png"/>
                         </a>
                     </div>
@@ -275,7 +274,7 @@
             <div class="col-lg-6 col-sm-6 ">
                 <div class="service-list">
                 	<div class="service-list-col1">
-                    <a href="https://www.ruby-lang.org/">
+                    <a href="https://www.ruby-lang.org/" target="_blank">
                         <img class="brand-logo" src="./img/ruby.png"/>
                         </a>
                     </div>
