@@ -286,13 +286,25 @@ sudo cp /var/data/.htaccess /var/www/.htaccess;
 sudo cp /var/data/httpd.conf /etc/httpd/conf/httpd.conf;
 sudo cp /var/data/httpd-vhost.conf /etc/httpd/conf.d/httpd-vhost.conf;
 sudo chgrp -R apache /var/data/logs;
-sudo systemctl restart httpd;
+
 ########### END APACHE FINAL SECTION ########
 
 ########### NGINX FINAL SECTION ############
 
-########### END NGINX FINAL SECTION ########
+printf "Copying Configuration files\n.\n.\n.\n";
 
+printf  "Copying /var/data/nginx.conf to /etc/nginx/nginx.conf...\n";
+sudo cp  /var/data/nginx.conf /etc/nginx/nginx.conf;
+printf  "Copying /var/data/apache_proxy.conf to /etc/nginx/apache_proxy.conf...\n";
+sudo cp  /var/data/apache_proxy.conf /etc/nginx/apache_proxy.conf;
+printf  "Copying /var/data/phpmyadmin_proxy.conf to /etc/nginx/phpmyadmin_proxy.conf...\n";
+sudo cp  /var/data/phpmyadmin_proxy.conf /etc/nginx/phpmyadmin_proxy.conf;
+########### END NGINX FINAL SECTION ########
+########### SERVER ENABLE AND START ########
+sudo systemctl enable nginx;
+sudo systemctl start httpd;
+sudo systemctl start nginx;
+########### END SERVER SECTION ##########
 ######### END OF CURRENT CONFIG SETTINGS #################
 printf "Forwarded Ports:\n";
 printf "Private Network IP: 192.168.33.10\n";
