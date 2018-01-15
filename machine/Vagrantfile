@@ -3,32 +3,34 @@
 
 Vagrant.configure("2") do |config|
   config.vm.box = "bento/centos-7.4"
-  config.vm.box_version = "201709.15.0"
-
   # Change this line to forward ports from this machine directly to localhost,
   # http://192.168.33.10:80 will be mirrored by http://localhost:8080
-    config.vm.network "forwarded_port", guest: 80, host: 8080
+  #  config.vm.network "forwarded_port", guest: 80, host: 88
+  # ##Configure pure Apache PHP Server
     config.vm.network "private_network", ip: "192.168.33.10"
-    config.vm.network "forwarded_port", guest: 8000, host: 8888
-    config.vm.network "forwarded_port", guest: 3306, host: 3336
-    config.vm.network "forwarded_port", guest: 5432, host: 5400
-    config.vm.network "forwarded_port", guest: 6379, host: 6300
-    config.vm.network "forwarded_port", guest: 7474, host: 7414
-    config.vm.network "forwarded_port", guest: 7473, host: 7413
-    config.vm.network "forwarded_port", guest: 7687, host: 7617
-    config.vm.network "forwarded_port", guest: 27017, host: 27077
-  # config.vm.network "public_network"
-    config.vm.synced_folder "../data", "/var/data", :mount_options => ["dmode=777", "fmode=666"], type: "virtualbox"
+  # ##Configure pure NGINX server
+    config.vm.network "private_network", ip: "192.168.33.11"
+    ##Configure mixed stuff for elk stack and other stuff
+    config.vm.network "private_network", ip: "192.168.33.12"
+
+
+  #  config.vm.network "forwarded_port", guest: 8000, host: 8888
+  #  config.vm.network "forwarded_port", guest: 3306, host: 3336
+  #  config.vm.network "forwarded_port", guest: 5432, host: 5400
+  #  config.vm.network "forwarded_port", guest: 6379, host: 6300
+  #  config.vm.network "forwarded_port", guest: 7474, host: 7414
+  #  config.vm.network "forwarded_port", guest: 7473, host: 7413
+  #  config.vm.network "forwarded_port", guest: 7687, host: 7617
+  #  config.vm.network "forwarded_port", guest: 27017, host: 27077
+    config.vm.network "public_network"
+    config.vm.synced_folder "../data", "/var/data", :mount_options => ["dmode=777", "fmode=777"], type: "virtualbox"
     config.vm.synced_folder "../html", "/var/www/html", :mount_options => ["dmode=777", "fmode=777"], type: "virtualbox"
     
   #  config.vm.synced_folder ".", "/home/vagrant/sync", type: "virtualbox" 
-    config.vm.synced_folder ".", "/vagrant", type: "virtualbox" 
+     config.vm.synced_folder ".", "/vagrant", type: "virtualbox" 
   #  config.vm.synced_folder ".", "/vagrant", disabled: true
   # Virtualbox configuring:
     config.vm.provider "virtualbox" do |vb|
-  #   # Display the VirtualBox GUI when booting the machine
-  #    vb.gui = true
-  #
   #   # Customize the amount of memory on the VM:
       vb.memory = "4096"
       vb.cpus = "2"
