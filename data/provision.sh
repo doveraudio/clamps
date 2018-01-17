@@ -37,14 +37,14 @@ sudo yum install -y https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhe
 ## postgres repo ##
 
 ## elastic search repo ##
-sudo rpm --import http://packages.elastic.co/GPG-KEY-elasticsearch;
-sudo cp /var/data/elasticsearch.repo /etc/yum.repos.d/elasticsearch.repo;
+#sudo rpm --import http://packages.elastic.co/GPG-KEY-elasticsearch;
+#sudo cp /var/data/elasticsearch.repo /etc/yum.repos.d/elasticsearch.repo;
 ## elastic search repo ##
 
 ## kibana repo ##
 ## already have key from elastic.co otherwise use, but why have kibana if no elastic search?
 ## sudo rpm --import http://packages.elastic.co/GPG-KEY-elasticsearch;
-sudo cp /var/data/kibana.repo /etc/yum.repos.d/kibana.repo
+#sudo cp /var/data/kibana.repo /etc/yum.repos.d/kibana.repo
 ## kibana repo ##
 
 ## dotnet repo ##
@@ -73,7 +73,8 @@ sudo yum -y update;
 ######### EDIT YUM INSTALL SETTINGS HERE
 
 printf "Install mysql-community-server \npostgresql94 \npostgresql94-server \nmongodb-org \nredis \nhttpd \nphp \nphp-common \nphp-mysqlnd \nphp-intl \nphp-json \nphp-xml \nphp-mcrypt \nphp-mbstring \nphp-pdo \nmod_php \nphp-gd \nphp-ctype \nphp-session \nphp-pdo_mysql \nphp-curl \nphp-ldap \nphp-xsl \nphp-zip \nphp-soap \nphp-mbstring \nphp-mysqli \ncomposer \ncurl \nelasticsearch \nkibana \ngit \nnodejs \nrh-dotnet20 \nimagemagick-dev...\n"
-sudo yum -y install mysql-community-server postgresql94 postgresql94-server mongodb-org redis httpd httpd-tools nginx php php-common php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd php-ctype php-session php-pdo_mysql php-pgsql php-curl php-ldap php-xsl php-zip php-soap php-mbstring php-mysqli java-1.8.0-openjdk-devel curl elasticsearch kibana git nodejs neo4j rh-dotnet20 mono-complete nuget imagemagick-dev composer; 
+sudo yum -y install mysql-community-server postgresql94 postgresql94-server mongodb-org redis httpd httpd-tools php php-common php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd php-ctype php-session php-pdo_mysql php-pgsql php-curl php-ldap php-xsl php-zip php-soap php-mbstring php-mysqli java-1.8.0-openjdk-devel curl git nodejs neo4j rh-dotnet20 mono-complete nuget imagemagick-dev composer; 
+#sudo yum -y install mysql-community-server postgresql94 postgresql94-server mongodb-org redis httpd httpd-tools nginx php php-common php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd php-ctype php-session php-pdo_mysql php-pgsql php-curl php-ldap php-xsl php-zip php-soap php-mbstring php-mysqli java-1.8.0-openjdk-devel curl elasticsearch kibana git nodejs neo4j rh-dotnet20 mono-complete nuget imagemagick-dev composer; 
 #sudo yum -y install mysql-server httpd php php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd; 
 
 #################------>END OF YUM INSTALL SECTION<-----#####
@@ -175,9 +176,9 @@ printf "Configuration Complete.\n";
 ####################---->ELASTIC SEARCH SECTION <-------###########
 #########
 ######### EDIT ELASTIC SEARCH CONFIG SETTINGS HERE
-sudo cp /var/data/elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
-sudo systemctl start elasticsearch;
-sudo systemctl enable elasticsearch;
+#sudo cp /var/data/elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
+#sudo systemctl start elasticsearch;
+#sudo systemctl enable elasticsearch;
 #################------>END OF ELASTIC SEARCH SECTION<-----#####
 
 
@@ -291,19 +292,20 @@ sudo chgrp -R apache /var/data/logs;
 
 ########### NGINX FINAL SECTION ############
 
-printf "Copying Configuration files\n.\n.\n.\n";
+#printf "Copying Configuration files\n.\n.\n.\n";
 
-printf  "Copying /var/data/nginx.conf to /etc/nginx/nginx.conf...\n";
-sudo cp  /var/data/nginx.conf /etc/nginx/nginx.conf;
-printf  "Copying /var/data/apache_proxy.conf to /etc/nginx/apache_proxy.conf...\n";
-sudo cp  /var/data/apache_proxy.conf /etc/nginx/apache_proxy.conf;
-printf  "Copying /var/data/phpmyadmin_proxy.conf to /etc/nginx/phpmyadmin_proxy.conf...\n";
-sudo cp  /var/data/phpmyadmin_proxy.conf /etc/nginx/phpmyadmin_proxy.conf;
+#printf  "Copying /var/data/nginx.conf to /etc/nginx/nginx.conf...\n";
+#sudo cp  /var/data/nginx.conf /etc/nginx/nginx.conf;
+#printf  "Copying /var/data/apache_proxy.conf to /etc/nginx/apache_proxy.conf...\n";
+#sudo cp  /var/data/apache_proxy.conf /etc/nginx/apache_proxy.conf;
+#printf  "Copying /var/data/phpmyadmin_proxy.conf to /etc/nginx/phpmyadmin_proxy.conf...\n";
+#sudo cp  /var/data/phpmyadmin_proxy.conf /etc/nginx/phpmyadmin_proxy.conf;
 ########### END NGINX FINAL SECTION ########
 ########### SERVER ENABLE AND START ########
-sudo systemctl enable nginx;
+#sudo systemctl enable nginx;
+sudo systemctl enable httpd;
 sudo systemctl start httpd;
-sudo systemctl start nginx;
+#sudo systemctl start nginx;
 ########### END SERVER SECTION ##########
 ######### END OF CURRENT CONFIG SETTINGS #################
 printf "Forwarded Ports:\n";
