@@ -20,7 +20,7 @@ wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm;
 ## remi repo ##
 wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm;
 sudo rpm -Uvh remi-release-7.rpm epel-release-latest-7.noarch.rpm;
-sudo yum-config-manager --enable remi-php70;
+sudo yum-config-manager --enable remi-php73;
 ## remi repo ##
 
 ## neo4j repo ##
@@ -29,11 +29,11 @@ sudo rpm --import http://debian.neo4j.org/neotechnology.gpg.key
 ## neo4j repo ##
 
 ## mysql repo ##
-sudo yum localinstall -y https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm;
+sudo yum localinstall -y https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm;
 ## mysql repo ##
 
 ## postgres repo ##
-sudo yum install -y https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-2.noarch.rpm;
+sudo yum install -y yum install https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-7-x86_64/pgdg-centos11-11-2.noarch.rpm;
 ## postgres repo ##
 
 ## elastic search repo ##
@@ -56,7 +56,7 @@ sudo cp /var/data/mongodb-org-3.6.repo /etc/yum.repos.d/mongodb-org-3.6.repo;
 ## mongo repo ##
 
 ## node repo ##
-curl --silent --location https://rpm.nodesource.com/setup_9.x | sudo bash -;
+curl --silent --location https://rpm.nodesource.com/setup_11.x | sudo bash -;
 ## node repo ##
 
 ## mono repo ##
@@ -72,9 +72,9 @@ sudo yum -y update;
 #########
 ######### EDIT YUM INSTALL SETTINGS HERE
 
-printf "Install mysql-community-server \npostgresql94 \npostgresql94-server \nmongodb-org \nredis \nhttpd \nphp \nphp-common \nphp-mysqlnd \nphp-intl \nphp-json \nphp-xml \nphp-mcrypt \nphp-mbstring \nphp-pdo \nmod_php \nphp-gd \nphp-ctype \nphp-session \nphp-pdo_mysql \nphp-curl \nphp-ldap \nphp-xsl \nphp-zip \nphp-soap \nphp-mbstring \nphp-mysqli \ncomposer \ncurl \nelasticsearch \nkibana \ngit \nnodejs \nrh-dotnet20 \nimagemagick-dev...\n"
-sudo yum -y install mysql-community-server postgresql94 postgresql94-server mongodb-org redis httpd httpd-tools php php-common php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd php-ctype php-session php-pdo_mysql php-pgsql php-curl php-ldap php-xsl php-zip php-soap php-mbstring php-mysqli java-1.8.0-openjdk-devel curl git nodejs neo4j rh-dotnet20 mono-complete nuget imagemagick-dev composer; 
-#sudo yum -y install mysql-community-server postgresql94 postgresql94-server mongodb-org redis httpd httpd-tools nginx php php-common php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd php-ctype php-session php-pdo_mysql php-pgsql php-curl php-ldap php-xsl php-zip php-soap php-mbstring php-mysqli java-1.8.0-openjdk-devel curl elasticsearch kibana git nodejs neo4j rh-dotnet20 mono-complete nuget imagemagick-dev composer; 
+printf "Install mysql-community-server \npostgresql11 \npostgresql11-server \nmongodb-org \nredis \nhttpd \nphp \nphp-common \nphp-mysqlnd \nphp-intl \nphp-json \nphp-xml \nphp-mcrypt \nphp-mbstring \nphp-pdo \nmod_php \nphp-gd \nphp-ctype \nphp-session \nphp-pdo_mysql \nphp-curl \nphp-ldap \nphp-xsl \nphp-zip \nphp-soap \nphp-mbstring \nphp-mysqli \ncomposer \ncurl \nelasticsearch \nkibana \ngit \nnodejs \nrh-dotnet20 \nimagemagick-dev...\n"
+sudo yum -y install mysql-community-server postgresql11 postgresql11-server mongodb-org redis httpd httpd-tools php php-common php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd php-ctype php-session php-pdo_mysql php-pgsql php-curl php-ldap php-xsl php-zip php-soap php-mbstring php-mysqli java-1.8.0-openjdk-devel curl git nodejs neo4j rh-dotnet20 mono-complete nuget imagemagick-dev composer; 
+#sudo yum -y install mysql-community-server postgresql11 postgresql11-server mongodb-org redis httpd httpd-tools nginx php php-common php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd php-ctype php-session php-pdo_mysql php-pgsql php-curl php-ldap php-xsl php-zip php-soap php-mbstring php-mysqli java-1.8.0-openjdk-devel curl elasticsearch kibana git nodejs neo4j rh-dotnet20 mono-complete nuget imagemagick-dev composer; 
 #sudo yum -y install mysql-server httpd php php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd; 
 
 #################------>END OF YUM INSTALL SECTION<-----#####
@@ -150,22 +150,22 @@ printf "Configuration Complete.\n";
 printf "Configuring Postgresql\n";
 printf ".";
 printf ".";
-#sudo yum install -y postgresql94 postgresql94-server;
+#sudo yum install -y postgresql11 postgresql11-server;
 printf ".";
 #################------>END OF MYSQL SECTION<-----#####
 
 ####################---->POSTGRESQL SECTION <-------###########
 #########
 ######### EDIT POSTGRESQL CONFIG SETTINGS HERE
-sudo systemctl enable postgresql-9.4;
+sudo systemctl enable postgresql-11;
 printf ".";
 #cd /usr/pgsql-9.3/bin/;
-sudo /usr/pgsql-9.4/bin/postgresql94-setup initdb;
+sudo /usr/pgsql-11/bin/postgresql11-setup initdb;
 printf ".";
-sudo cp -f /var/data/pg_hba.conf /var/lib/pgsql/9.4/data/pg_hba.conf;
+sudo cp -f /var/data/pg_hba.conf /var/lib/pgsql/11/data/pg_hba.conf;
 printf ".";
 printf ".";
-sudo systemctl start postgresql-9.4;
+sudo systemctl start postgresql-11;
 printf ".\n";
 sudo su postgres -c "psql -f /var/data/psqlmakevagrant.sql";
 printf "Postgresql User:vagrant , Password:vagrant\n";
