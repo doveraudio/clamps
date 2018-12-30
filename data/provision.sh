@@ -78,7 +78,10 @@ sudo yum -y install mysql-community-server postgresql11 postgresql11-server mong
 #sudo yum -y install mysql-server httpd php php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd; 
 
 #################------>END OF YUM INSTALL SECTION<-----#####
-
+###################### COMPOSER INSTALL ###################
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');";
+sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer;
+######################## END COMPOSER INSTALL ######################
 ####################---->SECURITY SECTION <-------###########
 #########
 ######### EDIT SECURITY CONFIG SETTINGS HERE
@@ -255,11 +258,11 @@ source scl_source enable rh-dotnet20;
 #########
 ######### EDIT PHPMYADMIN CONFIG SETTINGS HERE
 printf "Downloading PhpMyAdmin.......\n";
-wget -O phpmyadmin.zip https://files.phpmyadmin.net/phpMyAdmin/4.7.7/phpMyAdmin-4.7.7-english.zip;
+wget -O phpmyadmin.zip https://files.phpmyadmin.net/phpMyAdmin/4.8.4/phpMyAdmin-4.8.4-english.zip;
 printf "Unzipping PhpMyAdmin.......\n";
 unzip phpmyadmin.zip -d /var/data/;
 printf "Moving PhpMyAdmin.......\n";
-mv /var/data/phpMyAdmin-4.7.7-english/ /var/www/html/phpmyadmin;
+mv /var/data/phpMyAdmin-4.8.4-english/ /var/www/html/phpmyadmin;
 printf "Configuring PhpMydmin.......\n";
 cp /var/data/config.inc.php.myadmin /var/www/html/phpmyadmin/config.inc.php;
 #################------>END OF PHPMYADMIN SECTION<-----#####

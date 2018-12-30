@@ -9,3 +9,8 @@ printf ".\n";
 printf "Restarting Apache Server.....\n"
 sudo systemctl restart httpd;
 printf "Operation Complete.\n";
+
+#sudo cp /var/data/.htaccess /var/www/.htaccess;
+#sudo cp /var/data/httpd.conf /etc/httpd/conf/httpd.conf;
+#sudo cp /var/data/httpd-vhost.conf /etc/httpd/conf.d/httpd-vhost.conf;
+sudo chgrp -R apache /var/data/logs;
