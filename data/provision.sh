@@ -60,8 +60,11 @@ curl --silent --location https://rpm.nodesource.com/setup_11.x | sudo bash -;
 ## node repo ##
 
 ## mono repo ##
-rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF"
-yum-config-manager --add-repo http://download.mono-project.com/repo/centos7/
+#rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF"
+#yum-config-manager --add-repo http://download.mono-project.com/repo/centos7/
+#USING MICROSOFT DOTNET-CORE
+
+sudo rpm -Uvh https://packages.microsoft.com/config/rhel/7/packages-microsoft-prod.rpm
 ## mono repo ##
 
 sudo yum -y update;
@@ -73,7 +76,7 @@ sudo yum -y update;
 ######### EDIT YUM INSTALL SETTINGS HERE
 
 printf "Install mysql-community-server \npostgresql11 \npostgresql11-server \nmongodb-org \nredis \nhttpd \nphp \nphp-common \nphp-mysqlnd \nphp-intl \nphp-json \nphp-xml \nphp-mcrypt \nphp-mbstring \nphp-pdo \nmod_php \nphp-gd \nphp-ctype \nphp-session \nphp-pdo_mysql \nphp-curl \nphp-ldap \nphp-xsl \nphp-zip \nphp-soap \nphp-mbstring \nphp-mysqli \ncomposer \ncurl \nelasticsearch \nkibana \ngit \nnodejs \nrh-dotnet20 \nimagemagick-dev...\n"
-sudo yum -y install mysql-community-server postgresql11 postgresql11-server mongodb-org redis httpd httpd-tools php php-common php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd php-ctype php-session php-pdo_mysql php-pgsql php-curl php-ldap php-xsl php-zip php-soap php-mbstring php-mysqli java-1.8.0-openjdk-devel curl git nodejs neo4j rh-dotnet20 mono-complete nuget imagemagick-dev composer; 
+sudo yum -y install mysql-community-server postgresql11 postgresql11-server mongodb-org redis httpd httpd-tools php php-common php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd php-ctype php-session php-pdo_mysql php-pgsql php-curl php-ldap php-xsl php-zip php-soap php-mbstring php-mysqli java-1.8.0-openjdk-devel curl git nodejs neo4j dotnet-sdk-2.1 nuget imagemagick-dev composer; 
 #sudo yum -y install mysql-community-server postgresql11 postgresql11-server mongodb-org redis httpd httpd-tools nginx php php-common php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd php-ctype php-session php-pdo_mysql php-pgsql php-curl php-ldap php-xsl php-zip php-soap php-mbstring php-mysqli java-1.8.0-openjdk-devel curl elasticsearch kibana git nodejs neo4j rh-dotnet20 mono-complete nuget imagemagick-dev composer; 
 #sudo yum -y install mysql-server httpd php php-mysqlnd php-intl php-json php-xml php-mcrypt php-mbstring php-pdo mod_php php-gd; 
 
